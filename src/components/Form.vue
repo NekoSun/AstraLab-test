@@ -90,7 +90,7 @@
           />
         </div>
       </div>
-      <BtnSend @click="submitHandler" :text="title" />
+      <BtnSend @click="submitHandler()" :text="title" :disabled="disabled" />
     </div>
   </div>
 </template>
@@ -121,7 +121,30 @@ export default {
       name: '',
       password: '',
       passwordRepeat: '',
+      disabled: false,
     };
+  },
+  watch: {
+    name() {
+      if (this.disabled) {
+        this.disabled = false
+      }
+    },
+    email() {
+      if (this.disabled) {
+        this.disabled = false
+      }
+    },
+    password() {
+      if (this.disabled) {
+        this.disabled = false
+      }
+    },
+    passwordRepeat() {
+      if (this.disabled) {
+        this.disabled = false
+      }
+    },
   },
   validations: {
     name: {
@@ -148,11 +171,12 @@ export default {
   methods: {
     ...mapActions(['getUser']),
     submitHandler() {
-      if (this.$v.$invalid) {
-        this.$v.$touch();
-        return;
-      }
       if (this.title === 'Sign Up') {
+        if (this.$v.$invalid) {
+          this.$v.$touch();
+          this.disabled = true
+          return;
+        }
         const data = {
           name: this.name,
           email: this.email,
@@ -161,27 +185,36 @@ export default {
         this.getUser(data);
         this.$router.push({ path: '/main' });
       }
+
       if (this.title === 'Sign In') {
-        const oldData = {
+        if (this.$v.email.$invalid || this.$v.password.$invalid) {
+          this.$v.$touch();
+          this.disabled = true
+          return;
+        }
+        const trueData = {
           name: 'John Doe',
           email: 'example@acme.com',
           password: 'q12W@Q3eqw',
-        };
+        }
 
         if (
-          oldData.email !== this.email &&
-          oldData.password !== this.password
+          trueData.email !== this.email ||
+          trueData.password !== this.password
         ) {
           this.$emit('noLogin');
+          this.disabled = true
         } else {
-          this.getUser(oldData);
+          this.getUser(trueData);
           this.$router.push({ path: '/main' });
         }
       }
     },
   },
 };
+
 </script>
+
 
 <style lang="scss">
 @import '../assets/styles/variables';

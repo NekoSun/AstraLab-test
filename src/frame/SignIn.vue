@@ -6,11 +6,13 @@
       Don’t have an account yet?
       <router-link class="footer__link" to="/sign-up">Sign Up</router-link>
     </div>
-    <div class="wrong">
-      Wrong email or password<img
-        src="@/assets/img/ico-close.svg"
-        @click="wrong = false"
-      />
+    <div class="wrong__wrapper">
+      <div class="wrong" v-if="wrong">
+        Wrong email or password<img
+          src="@/assets/img/ico-close.svg"
+          @click="wrong = false"
+        />
+      </div>
     </div>
   </div>
 </template>
@@ -39,9 +41,7 @@ export default {
 @import '../assets/styles/mixin';
 
 .wrong {
-  position: absolute;
-  bottom: 17px;
-  margin: 0 5%;
+  position: relative;
   border-radius: 50px;
   background: #ff6683;
   cursor: pointer;
@@ -49,6 +49,12 @@ export default {
   outline: none;
   padding: 14px 20%;
 
+  &__wrapper {
+    width: 100%;
+    position: absolute;
+    bottom: 17px;
+    padding: 0 5%;
+  }
   img {
     position: absolute;
     right: 18px;

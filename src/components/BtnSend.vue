@@ -1,5 +1,5 @@
 <template>
-  <button @click="$emit('click')" :disabled="disabled" class="btn__send">
+  <button @click="$emit('click')" :disabled="disabled" :class="disabled ? 'btn__send btn__send--disabled' : 'btn__send'">
     {{ text }}
   </button>
 </template>
@@ -34,8 +34,14 @@ export default {
   padding: 14px 20%;
   width: 100%;
 
+
+
   @include flex_center;
 
   @include font(14px, 500, 20px, 'Medium', #ffffff);
+}
+
+.btn__send.btn__send--disabled {
+  background: rgba(30, 26, 62, .4);;
 }
 </style>
