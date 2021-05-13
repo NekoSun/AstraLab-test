@@ -2,13 +2,13 @@
   "name": "mobile-test",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://NekoSun.github.io/astraLab-test",
+  "homepage": "https://NekoSun.github.io/AstraLab-test",
   "scripts": {
     "start": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "core-js": "^3.6.5",
