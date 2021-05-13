@@ -18,8 +18,8 @@ npm start
 npm run build
 ```
 
-### Lints and fixes files
+### Demo
 
 ```
-npm run lint
+https://nekosun.github.io/AstraLab-test/
 ```
