@@ -20,6 +20,4 @@ npm run build
 
 ### Demo
 
-```
 [тут](https://nekosun.github.io/AstraLab-test/).
-```
