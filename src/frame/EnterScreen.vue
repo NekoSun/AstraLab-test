@@ -7,7 +7,7 @@
       <BtnSignIn />
     </div>
     <div class="background-frame">
-      <img src="@/assets/img/bg-1.svg" :width="1000" />
+      <img class="background-frame__img" src="@/assets/img/bg-1.svg" />
     </div>
   </div>
 </template>
@@ -37,6 +37,10 @@ export default {
 @import '../assets/styles/variables';
 @import '../assets/styles/mixin';
 
+// .start__screen {
+//   position: relative;
+// }
+
 .start-screen__text {
   padding: 5% 14% 0;
   text-align: center;
@@ -53,8 +57,14 @@ export default {
 
 .background-frame {
   position: absolute;
-  bottom: -5px;
+  width: 100%;
+  bottom: 0;
   left: 0;
   z-index: -1;
+
+  &__img {
+    position: absolute;
+    bottom: 0;
+  }
 }
 </style>
