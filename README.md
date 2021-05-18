@@ -20,4 +20,10 @@ npm run build
 
 ### Demo
 
+```
+Sign In
+email: example@acme.com
+password: q12W@Q3eqw
+```
+
 [тут](https://nekosun.github.io/AstraLab-test/).
