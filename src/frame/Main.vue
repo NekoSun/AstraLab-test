@@ -2,7 +2,7 @@
   <div class="main">
     <Header :title="`Hello, ${User.name}`" class="main__heder" />
     <div class="background-frame">
-      <img src="@/assets/img/bg-2.svg" :width="1000" />
+      <img class="background-frame__img" src="@/assets/img/bg-2.svg" />
     </div>
   </div>
 </template>
@@ -40,13 +40,6 @@ export default {
     justify-content: space-between;
     margin-top: 9%;
     padding: 0 19% 0;
-  }
-
-  .background-frame {
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    z-index: -1;
   }
 }
 </style>
