@@ -21,6 +21,5 @@ npm run build
 ### Demo
 
 ```
-https://nekosun.github.io/AstraLab-test/
+[тут](https://nekosun.github.io/AstraLab-test/).
 ```
-
